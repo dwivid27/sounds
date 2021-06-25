@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Board</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0;
+        }
+        .btn{
+            background-color: rebeccapurple;
+            border-radius: 5px;
+            border: none;
+            color: wheat;
+            margin: 1rem;
+            padding: 1.5rem 3rem;
+            font-size: 1.2rem;
+
+        }
+        .btn:hover{
+            opacity: 0.9;
+        }
+
+        .btn:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="titu" src="sounds/titu.mp3"></audio>
+    <audio id="princu" src="sounds/princu.mp3"></audio>
+    <audio id="takla" src="sounds/takla.mp3"></audio>
+    <audio id="motu" src="sounds/motu.mp3"></audio>
+    <audio id="bondhu" src="sounds/bondhu.mp3"></audio>
+    <audio id="david" src="sounds/david.mp3"></audio>
+
+<div id="buttons"></div>
+
+<script>
+    const sounds = ["titu","princu","takla","motu","bondhu","david"]
+
+    sounds.forEach(sound => {
+        const btn = document.createElement("button")
+        btn.classList.add("btn")
+
+        btn.innerText = sound
+         btn.addEventListener('click', () => {
+             document.getElementById(sound).play()
+         })
+
+        document.getElementById("buttons").appendChild(btn)
+    })
+</script>
+
+    
+
+</body>
+</html>
